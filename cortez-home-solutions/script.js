@@ -159,21 +159,27 @@ if (workScroller) {
 
   // Drag-to-scroll for mouse users (touch/trackpad use native scrolling)
   let dragging = false;
+  let dragMoved = false;
   let startX = 0;
   let startScroll = 0;
 
   workScroller.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse') return;
     dragging = true;
+    dragMoved = false;
     startX = e.clientX;
     startScroll = workScroller.scrollLeft;
     workScroller.setPointerCapture(e.pointerId);
-    workScroller.classList.add('is-dragging');
   });
 
   workScroller.addEventListener('pointermove', (e) => {
     if (!dragging) return;
-    workScroller.scrollLeft = startScroll - (e.clientX - startX);
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 6) {
+      dragMoved = true;
+      workScroller.classList.add('is-dragging');
+    }
+    workScroller.scrollLeft = startScroll - dx;
   });
 
   const endDrag = () => {
@@ -185,6 +191,85 @@ if (workScroller) {
 
   workScroller.addEventListener('pointerup', endDrag);
   workScroller.addEventListener('pointercancel', endDrag);
+
+  /* Click a photo to enlarge it (lightbox) */
+  const lightbox = document.getElementById('lightbox');
+
+  if (lightbox) {
+    const lbImg = lightbox.querySelector('.lightbox-img');
+    const lbPhoto = lightbox.querySelector('.lightbox-photo');
+    const lbTag = lightbox.querySelector('.lightbox-tag');
+    const lbDesc = lightbox.querySelector('.lightbox-desc');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    let lastFocus = null;
+
+    const openLightbox = (card) => {
+      const photo = card.querySelector('.work-photo');
+      const img = photo.querySelector('img');
+      const empty = photo.classList.contains('is-empty') || !img || !img.naturalWidth;
+      lbPhoto.classList.toggle('is-empty', empty);
+      if (empty) {
+        lbImg.hidden = true;
+        lbImg.removeAttribute('src');
+      } else {
+        lbImg.hidden = false;
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt;
+      }
+      const tag = card.querySelector('.work-tag');
+      const desc = card.querySelector('.work-desc');
+      lbTag.textContent = tag ? tag.textContent : '';
+      lbDesc.textContent = desc ? desc.textContent : '';
+
+      lastFocus = document.activeElement;
+      lightbox.hidden = false;
+      void lightbox.offsetWidth; // flush layout so the fade-in transition runs
+      lightbox.classList.add('open');
+      document.body.classList.add('no-scroll');
+      closeBtn.focus();
+    };
+
+    const closeLightbox = () => {
+      if (lightbox.hidden) return;
+      lightbox.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      if (reduceMotion) {
+        lightbox.hidden = true;
+      } else {
+        const onEnd = (e) => {
+          if (e.target !== lightbox) return;
+          lightbox.hidden = true;
+          lightbox.removeEventListener('transitionend', onEnd);
+        };
+        lightbox.addEventListener('transitionend', onEnd);
+      }
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.querySelector('[data-lightbox-close]').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    });
+
+    document.querySelectorAll('.work-card').forEach((card) => {
+      const photo = card.querySelector('.work-photo');
+      if (!photo) return;
+      photo.setAttribute('role', 'button');
+      photo.setAttribute('tabindex', '0');
+      photo.setAttribute('aria-label', 'Enlarge photo');
+      photo.addEventListener('click', () => {
+        if (dragMoved) return;
+        openLightbox(card);
+      });
+      photo.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(card);
+        }
+      });
+    });
+  }
 }
 
 /* Estimate form */
