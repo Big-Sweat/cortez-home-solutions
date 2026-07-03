@@ -1,0 +1,12 @@
+# OS / sync junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# Machine-specific graphify state (absolute local paths)
+graphify-out/.graphify_python
+graphify-out/.graphify_root
