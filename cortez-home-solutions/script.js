@@ -157,34 +157,42 @@ if (workScroller) {
   window.addEventListener('resize', updateArrows);
   updateArrows();
 
-  // Drag-to-scroll for mouse users (touch/trackpad use native scrolling)
+  // Drag-to-scroll for mouse users (touch/trackpad use native scrolling).
+  // Pointer capture is deferred until a real drag starts, so a plain click
+  // still reaches the photo and opens the lightbox.
   let dragging = false;
+  let capturing = false;
   let dragMoved = false;
   let startX = 0;
   let startScroll = 0;
+  let activePointer = null;
 
   workScroller.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse') return;
     dragging = true;
+    capturing = false;
     dragMoved = false;
     startX = e.clientX;
     startScroll = workScroller.scrollLeft;
-    workScroller.setPointerCapture(e.pointerId);
+    activePointer = e.pointerId;
   });
 
   workScroller.addEventListener('pointermove', (e) => {
     if (!dragging) return;
     const dx = e.clientX - startX;
-    if (Math.abs(dx) > 6) {
+    if (!capturing && Math.abs(dx) > 6) {
+      capturing = true;
       dragMoved = true;
       workScroller.classList.add('is-dragging');
+      try { workScroller.setPointerCapture(activePointer); } catch (err) { /* noop */ }
     }
-    workScroller.scrollLeft = startScroll - dx;
+    if (capturing) workScroller.scrollLeft = startScroll - dx;
   });
 
   const endDrag = () => {
     if (!dragging) return;
     dragging = false;
+    capturing = false;
     workScroller.classList.remove('is-dragging');
     updateArrows();
   };
