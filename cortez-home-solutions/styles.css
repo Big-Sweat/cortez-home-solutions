@@ -970,16 +970,7 @@ html:not(.js) .eyebrow::before { transform: scaleX(1); }
 .split-script {
   width: 100%;
   color: var(--cream);
-}
-
-.split-logo-sub {
   font-family: var(--font-serif);
-  font-size: clamp(0.9375rem, 1.7vw, 1.3rem);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  text-indent: 0.14em;
-  color: var(--cream);
-  margin-top: -0.35rem;
 }
 
 .js [data-reveal].reveal-blur { transform: scale(0.95); filter: blur(10px); }
@@ -1104,15 +1095,7 @@ html:not(.js) .eyebrow::before { transform: scaleX(1); }
 .footer-script {
   width: min(15rem, 70%);
   color: var(--cream);
-}
-
-.footer-script-sub {
   font-family: var(--font-serif);
-  font-size: 0.875rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255, 247, 233, 0.82);
-  padding-left: 0.15rem;
 }
 
 .footer-cols {
