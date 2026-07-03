@@ -10,9 +10,9 @@
     "semantic_hash": "0d70d677c7257a1c6a138578febbb1c1"
   },
   "cortez-home-solutions/script.js": {
-    "mtime": 1783017144.258186,
-    "ast_hash": "60df8c4eec7a3074f9d8ca335b4d5053",
-    "semantic_hash": "60df8c4eec7a3074f9d8ca335b4d5053"
+    "mtime": 1783113364.311463,
+    "ast_hash": "933a55456af79bd951e1f6657f78f221",
+    "semantic_hash": "933a55456af79bd951e1f6657f78f221"
   },
   "CLAUDEwebdesign copy (1).md": {
     "mtime": 1783011968.4978142,
@@ -20,14 +20,14 @@
     "semantic_hash": "ab36409378d5378371b42331280c5b1d"
   },
   "cortez-home-solutions/index.html": {
-    "mtime": 1783017085.0628498,
-    "ast_hash": "0d17f174059b3e3229640b303efafa24",
-    "semantic_hash": "0d17f174059b3e3229640b303efafa24"
+    "mtime": 1783113696.0256143,
+    "ast_hash": "ca672b6694f35de3dbd31f2e4c6f2cbc",
+    "semantic_hash": "ca672b6694f35de3dbd31f2e4c6f2cbc"
   },
   "CHS_logo-01.svg": {
-    "mtime": 1783011799.0867622,
-    "ast_hash": "9cc12edf898b28d7eea8e89d877a930c",
-    "semantic_hash": "9cc12edf898b28d7eea8e89d877a930c"
+    "mtime": 1783095959.1105013,
+    "ast_hash": "5aae7a7014f16d88c3ce860b1eafcd10",
+    "semantic_hash": "5aae7a7014f16d88c3ce860b1eafcd10"
   },
   "CHS_logo-02.svg": {
     "mtime": 1783011799.74049,
@@ -35,9 +35,9 @@
     "semantic_hash": "fb28a678cde0d999baa2a393e1a892ff"
   },
   "cortez-home-solutions/assets/CHS_logo-01.svg": {
-    "mtime": 1783011799.0867622,
-    "ast_hash": "9cc12edf898b28d7eea8e89d877a930c",
-    "semantic_hash": "9cc12edf898b28d7eea8e89d877a930c"
+    "mtime": 1783096251.3368354,
+    "ast_hash": "5aae7a7014f16d88c3ce860b1eafcd10",
+    "semantic_hash": "5aae7a7014f16d88c3ce860b1eafcd10"
   },
   "cortez-home-solutions/assets/CHS_logo-02.svg": {
     "mtime": 1783011799.74049,
@@ -50,9 +50,9 @@
     "semantic_hash": "9148376f249b36f1fdca0e753acce1cc"
   },
   "wiki/hot.md": {
-    "mtime": 1783016169.5199609,
-    "ast_hash": "5b58cfcd5912cea059d239aa60e22715",
-    "semantic_hash": "5b58cfcd5912cea059d239aa60e22715"
+    "mtime": 1783100669.7712018,
+    "ast_hash": "fbf9d95072fbc099e33808385479213d",
+    "semantic_hash": "fbf9d95072fbc099e33808385479213d"
   },
   "wiki/index.md": {
     "mtime": 1783014487.141456,
@@ -60,9 +60,9 @@
     "semantic_hash": "7d64894abc71dbeb6f098482558f53e4"
   },
   "wiki/log.md": {
-    "mtime": 1783016165.6868238,
-    "ast_hash": "ca63a6f7d16c4d4872b9e123df992811",
-    "semantic_hash": "ca63a6f7d16c4d4872b9e123df992811"
+    "mtime": 1783025258.868512,
+    "ast_hash": "b337e4e1ce2db6807d6a49ee413b3923",
+    "semantic_hash": "b337e4e1ce2db6807d6a49ee413b3923"
   },
   "wiki/meta/2026-07-02-cortez-home-solutions-website-build.md": {
     "mtime": 1783016163.9439669,
@@ -73,5 +73,20 @@
     "mtime": 1782942098.170393,
     "ast_hash": "60d2d12f7d24e17759062c8461935b13",
     "semantic_hash": "60d2d12f7d24e17759062c8461935b13"
+  },
+  ".github/workflows/pages.yml": {
+    "mtime": 1783037802.7910602,
+    "ast_hash": "d607900dc528da3248d5b98b0581b9ca",
+    "semantic_hash": "d607900dc528da3248d5b98b0581b9ca"
+  },
+  "README.md": {
+    "mtime": 1783037179.1278641,
+    "ast_hash": "0016bdefa336090a056485d23f1d0d95",
+    "semantic_hash": "0016bdefa336090a056485d23f1d0d95"
+  },
+  "cortez-home-solutions/images/work/README.md": {
+    "mtime": 1783102133.7871833,
+    "ast_hash": "ecedc9b44ff285367e9d159b1f57a21f",
+    "semantic_hash": "ecedc9b44ff285367e9d159b1f57a21f"
   }
 }

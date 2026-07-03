@@ -1,105 +1,103 @@
-# Graph Report - .  (2026-07-02)
+# Graph Report - .  (2026-07-03)
 
 ## Corpus Check
-- Large corpus: 15 files · ~1,064,695 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder.
+- 9 files · ~1,066,391 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 64 nodes · 91 edges · 8 communities
-- Extraction: 74% EXTRACTED · 26% INFERRED · 0% AMBIGUOUS · INFERRED: 24 edges (avg confidence: 0.86)
-- Token cost: 0 input · 0 output
+- 85 nodes · 112 edges · 9 communities (7 shown, 2 thin omitted)
+- Extraction: 82% EXTRACTED · 18% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.83)
+- Token cost: 104,000 input · 8,033 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Business Facts & Old Site Draft|Business Facts & Old Site Draft]]
+- [[_COMMUNITY_Site Structure & Deploy|Site Structure & Deploy]]
+- [[_COMMUNITY_Daylight Reference & Design System|Daylight Reference & Design System]]
 - [[_COMMUNITY_Design Standards & Hard Bans|Design Standards & Hard Bans]]
-- [[_COMMUNITY_Motion, Forms & Quality Floor|Motion, Forms & Quality Floor]]
 - [[_COMMUNITY_Interaction Layer (script.js)|Interaction Layer (script.js)]]
-- [[_COMMUNITY_Daylight Product Sections|Daylight Product Sections]]
-- [[_COMMUNITY_Daylight Narrative & Photography|Daylight Narrative & Photography]]
-- [[_COMMUNITY_Warm Editorial Design System|Warm Editorial Design System]]
-- [[_COMMUNITY_Project Wiki & Session Notes|Project Wiki & Session Notes]]
+- [[_COMMUNITY_Business Facts, Services & Wiki|Business Facts, Services & Wiki]]
+- [[_COMMUNITY_Script Wordmark Logo (CHS-01)|Script Wordmark Logo (CHS-01)]]
+- [[_COMMUNITY_Recent Work Gallery & Lightbox|Recent Work Gallery & Lightbox]]
+- [[_COMMUNITY_House Mark Logo (CHS-02)|House Mark Logo (CHS-02)]]
+- [[_COMMUNITY_Old Site Draft|Old Site Draft]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Daylight Homepage Full-Page Screenshot` - 17 edges
-2. `Website Design Standards (CLAUDE.md)` - 12 edges
-3. `Cortez Home Solutions Landing Page` - 7 edges
+2. `Cortez Home Solutions Single-Page Site` - 15 edges
+3. `Website Design Standards (CLAUDE.md)` - 11 edges
 4. `Warm Editorial Design System (Cream + Serif + Mono + Orange)` - 6 edges
-5. `Cortez Home Solutions LLC (Brand)` - 5 edges
-6. `Session Note: Cortez Home Solutions Website Build (2026-07-02)` - 5 edges
+5. `Recent Work Photo Gallery` - 5 edges
+6. `Shared SVG Marks (House, Chevron, Script Wordmark)` - 5 edges
 7. `Hard Bans` - 4 edges
-8. `Site Asset Copy: CHS Logo 02 House Mark` - 4 edges
-9. `Hero Section (Installed Right, the First Time)` - 4 edges
-10. `Animation Choreography (Hero Intro, Blueprint Draw, Accordion)` - 4 edges
+8. `Cortez Home Solutions Project Overview` - 4 edges
+9. `Estimate Strip Section` - 4 edges
+10. `Project Hot Cache` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `CHS Logo 01: Script Cortez Wordmark` --conceptually_related_to--> `Cortez Home Solutions LLC (Brand)`  [INFERRED]
-  CHS_logo-01.svg → cortez-home-solutions/index.html
-- `CHS Logo 02: House Mark with Red Roof Chevron` --conceptually_related_to--> `Cortez Home Solutions LLC (Brand)`  [INFERRED]
-  CHS_logo-02.svg → cortez-home-solutions/index.html
-- `Statement House Line Drawing (#house-draw)` --conceptually_related_to--> `CHS Logo 02: House Mark with Red Roof Chevron`  [INFERRED]
-  cortez-home-solutions/index.html → CHS_logo-02.svg
-- `Cortez Home Solutions Landing Page` --implements--> `Website Design Standards (CLAUDE.md)`  [INFERRED]
-  cortez-home-solutions/index.html → CLAUDEwebdesign copy (1).md
-- `FAQ Accordion Section (#faq)` --references--> `Old Site Draft (Installation-Focused v1)`  [INFERRED]
-  cortez-home-solutions/index.html → index of old site.html
+- `Real Business Facts (Angi + Old Site)` --conceptually_related_to--> `Warm Editorial Design System`  [INFERRED]
+  wiki/hot.md → README.md
+- `Session Note: Cortez Home Solutions Website Build (2026-07-02)` --references--> `Website Design Standards (CLAUDE.md)`  [EXTRACTED]
+  wiki/meta/2026-07-02-cortez-home-solutions-website-build.md → CLAUDEwebdesign copy (1).md
+- `Site Asset Copy: CHS Logo 02 House Mark` --shares_data_with--> `CHS Logo 02: House Mark with Red Roof Chevron`  [INFERRED]
+  cortez-home-solutions/assets/CHS_logo-02.svg → CHS_logo-02.svg
+- `Static Build (No Framework, No Build Step)` --conceptually_related_to--> `GitHub Pages Deploy Workflow`  [INFERRED]
+  README.md → .github/workflows/pages.yml
+- `Upload Site Folder Artifact Step` --references--> `Cortez Home Solutions Single-Page Site`  [EXTRACTED]
+  .github/workflows/pages.yml → cortez-home-solutions/index.html
 
 ## Import Cycles
 - None detected.
 
 ## Hyperedges (group relationships)
+- **Static Site Build & GitHub Pages Deploy Flow** — cortez_home_solutions_index_site, _github_workflows_pages_upload_site_artifact, _github_workflows_pages_deploy_job [INFERRED 0.85]
+- **Recent Work Gallery: Photos, Filenames & Lightbox** — cortez_home_solutions_index_recent_work_gallery, cortez_home_solutions_index_lightbox, cortez_home_solutions_images_work_readme_expected_filenames [EXTRACTED 0.75]
+- **Estimate Conversion Flow** — cortez_home_solutions_index_estimate_strip, cortez_home_solutions_index_estimate_form, readme_placeholder_contact_info [INFERRED 0.75]
 - **Warm Editorial Design System Pattern** — screencapture_godaylight_2026_06_30_17_55_39_cream_editorial_palette, screencapture_godaylight_2026_06_30_17_55_39_serif_display_typography, screencapture_godaylight_2026_06_30_17_55_39_mono_label_typography, screencapture_godaylight_2026_06_30_17_55_39_orange_accent_color [INFERRED 0.95]
 
-## Communities (8 total, 0 thin omitted)
+## Communities (9 total, 2 thin omitted)
 
-### Community 0 - "Business Facts & Old Site Draft"
+### Community 0 - "Site Structure & Deploy"
+Cohesion: 0.16
+Nodes (18): Pages Deploy Job, GitHub Pages Deploy Workflow, Upload Site Folder Artifact Step, Dark Band Section, Estimate Form (FormSubmit), Estimate Strip Section, FAQ Accordion, Site Footer (+10 more)
+
+### Community 1 - "Daylight Reference & Design System"
+Cohesion: 0.20
+Nodes (18): Daylight Homepage Full-Page Screenshot, Energy App UI Cards (Usage Charts, Phone Mockups), Value Prop Section: 'Cut your electric bill by 20% or more', Design Inspiration Reference for Cortez Home Solutions Website, Cream Editorial Background Palette (#fff7e9), Daylight (Home Solar / Decentralized Energy Company), Decentralized Energy Network Story: 'Every home makes the network stronger', Warm Editorial Design System (Cream + Serif + Mono + Orange) (+10 more)
+
+### Community 2 - "Design Standards & Hard Bans"
 Cohesion: 0.19
-Nodes (15): CHS Logo 01: Script Cortez Wordmark, CHS Logo 02: House Mark with Red Roof Chevron, Site Asset Copy: CHS Logo 01 Script Wordmark, Site Asset Copy: CHS Logo 02 House Mark, Cortez Home Solutions Landing Page, Angi Listing: Cortez Home Solutions LLC (Shawnee, KS), Cortez Home Solutions LLC (Brand), Statement House Line Drawing (#house-draw) (+7 more)
-
-### Community 1 - "Design Standards & Hard Bans"
-Cohesion: 0.31
-Nodes (9): Anti-AI-Look Principle (Two-Second Glance Test), Color Discipline (4-6 Named Values, One Accent), Hard Bans, Follow User References First, Responsive Mobile-First Requirement, Typography Standards (Display + Body Pairing), Vibe-Code Checklist, Website Design Standards (CLAUDE.md) (+1 more)
-
-### Community 2 - "Motion, Forms & Quality Floor"
-Cohesion: 0.22
-Nodes (9): Layout and Composition (Hero as Thesis), Motion Restraint, Quality Floor (Accessibility Baseline), Animation Choreography (Hero Intro, Blueprint Draw, Accordion), Estimate Request Form (#estimate), FAQ Accordion Section (#faq), Hero Section (Installed Right, the First Time), Inline SVG Symbol: Roof Chevron (#mark-roof-chevron) (+1 more)
+Nodes (13): Anti-AI-Look Principle (Two-Second Glance Test), Color Discipline (4-6 Named Values, One Accent), Hard Bans, Layout and Composition (Hero as Thesis), Motion Restraint, Quality Floor (Accessibility Baseline), Follow User References First, Responsive Mobile-First Requirement (+5 more)
 
 ### Community 3 - "Interaction Layer (script.js)"
-Cohesion: 0.25
-Nodes (6): form, links, nav, onScroll(), revealEls, toggle
+Cohesion: 0.18
+Nodes (9): form, links, nav, onScroll(), progress, ratingEl, revealEls, toggle (+1 more)
 
-### Community 4 - "Daylight Product Sections"
-Cohesion: 0.53
-Nodes (6): Daylight Homepage Full-Page Screenshot, Energy App UI Cards (Usage Charts, Phone Mockups), Value Prop Section: 'Cut your electric bill by 20% or more', Split-Panel Sections (Text Left / Visual Right), Closing CTA Split Panel: 'Step into Daylight' with Lavender Imagery, How-It-Works Steps: Subscribe to Daylight / We Install / Power On
+### Community 4 - "Business Facts, Services & Wiki"
+Cohesion: 0.22
+Nodes (10): Blueprint Shop Drawing SVG, Angi Reviews Section, Services Section, Project Hot Cache, Knowledge Graph Artifacts, Do Not Claim Licensed & Insured Constraint, Real Business Facts (Angi + Old Site), Old Site Copy Integration (+2 more)
 
-### Community 5 - "Daylight Narrative & Photography"
-Cohesion: 0.33
-Nodes (6): Design Inspiration Reference for Cortez Home Solutions Website, Daylight (Home Solar / Decentralized Energy Company), Decentralized Energy Network Story: 'Every home makes the network stronger', Full-Bleed Photographic Bands with Overlaid Headlines, Dark Narrative Band: 'Today's grid was built for yesterday's world' with Stat Callouts, Hero Section: 'Power your home for less' over Dusk House Photo
+### Community 5 - "Script Wordmark Logo (CHS-01)"
+Cohesion: 0.47
+Nodes (6): HOME SOLUTIONS Subtitle (Baskerville Old Face), CHS Logo Variant 01, Cortez Script Wordmark (Logo 01), HOME SOLUTIONS Subtitle (assets copy, Baskerville Old Face), CHS Logo Variant 01 (site assets copy), Cortez Script Wordmark (assets copy)
 
-### Community 6 - "Warm Editorial Design System"
-Cohesion: 0.33
-Nodes (6): Cream Editorial Background Palette (#fff7e9), Warm Editorial Design System (Cream + Serif + Mono + Orange), Small Monospace Uppercase Section Kickers, Saturated Orange Accent (CTAs, Panels, Footer), Large Serif Display Headlines, Orange Footer with Wavy Topographic Line Texture
-
-### Community 7 - "Project Wiki & Session Notes"
+### Community 6 - "Recent Work Gallery & Lightbox"
 Cohesion: 0.50
-Nodes (4): Wiki Hot Cache, BRO CODE Wiki Index, Wiki Log, Session Note: Cortez Home Solutions Website Build (2026-07-02)
+Nodes (5): Add Work Photos Guide, Expected Work Photo Filenames, Missing-Photo Placeholder Tile Fallback, Work Photo Lightbox, Recent Work Photo Gallery
 
 ## Knowledge Gaps
-- **13 isolated node(s):** `nav`, `links`, `revealEls`, `form`, `Color Discipline (4-6 Named Values, One Accent)` (+8 more)
+- **23 isolated node(s):** `Typography Standards (Display + Body Pairing)`, `Color Discipline (4-6 Named Values, One Accent)`, `Layout and Composition (Hero as Thesis)`, `Motion Restraint`, `Responsive Mobile-First Requirement` (+18 more)
   These have ≤1 connection - possible missing edges or undocumented components.
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Website Design Standards (CLAUDE.md)` connect `Design Standards & Hard Bans` to `Business Facts & Old Site Draft`, `Motion, Forms & Quality Floor`, `Project Wiki & Session Notes`?**
-  _High betweenness centrality (0.174) - this node is a cross-community bridge._
-- **Why does `Cortez Home Solutions Landing Page` connect `Business Facts & Old Site Draft` to `Design Standards & Hard Bans`, `Project Wiki & Session Notes`?**
-  _High betweenness centrality (0.138) - this node is a cross-community bridge._
-- **Why does `Daylight Homepage Full-Page Screenshot` connect `Daylight Product Sections` to `Daylight Narrative & Photography`, `Warm Editorial Design System`?**
-  _High betweenness centrality (0.058) - this node is a cross-community bridge._
+- **Why does `Cortez Home Solutions Single-Page Site` connect `Site Structure & Deploy` to `Business Facts, Services & Wiki`, `Recent Work Gallery & Lightbox`?**
+  _High betweenness centrality (0.107) - this node is a cross-community bridge._
+- **Why does `Recent Work Photo Gallery` connect `Recent Work Gallery & Lightbox` to `Site Structure & Deploy`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Daylight Homepage Full-Page Screenshot` (e.g. with `Design Inspiration Reference for Cortez Home Solutions Website` and `Warm Editorial Design System (Cream + Serif + Mono + Orange)`) actually correct?**
   _`Daylight Homepage Full-Page Screenshot` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `Cortez Home Solutions Landing Page` (e.g. with `Website Design Standards (CLAUDE.md)` and `Old Site Draft (Installation-Focused v1)`) actually correct?**
-  _`Cortez Home Solutions Landing Page` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 6 inferred relationships involving `Warm Editorial Design System (Cream + Serif + Mono + Orange)` (e.g. with `Daylight Homepage Full-Page Screenshot` and `Cream Editorial Background Palette (#fff7e9)`) actually correct?**
   _`Warm Editorial Design System (Cream + Serif + Mono + Orange)` has 6 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `Cortez Home Solutions LLC (Brand)` (e.g. with `CHS Logo 01: Script Cortez Wordmark` and `CHS Logo 02: House Mark with Red Roof Chevron`) actually correct?**
-  _`Cortez Home Solutions LLC (Brand)` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `Typography Standards (Display + Body Pairing)`, `Color Discipline (4-6 Named Values, One Accent)`, `Layout and Composition (Hero as Thesis)` to the rest of the system?**
+  _25 weakly-connected nodes found - possible documentation gaps or missing edges._
