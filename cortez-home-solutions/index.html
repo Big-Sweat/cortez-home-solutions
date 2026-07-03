@@ -58,6 +58,7 @@
       <nav class="nav-links" id="nav-links" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
+        <a href="#work">Work</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a href="#estimate">Contact</a>
@@ -265,6 +266,77 @@
       </div>
     </section>
 
+    <!-- RECENT WORK -->
+    <section class="work" id="work">
+      <div class="container work-head" data-reveal>
+        <div class="work-head-text">
+          <p class="eyebrow">Recent work</p>
+          <h2 class="h-lg">A few we handed back<br>better than we found them.</h2>
+          <p class="body-copy">Installs and remodels from around the Kansas City metro. Drag, swipe, or use the arrows to look through.</p>
+        </div>
+        <div class="work-arrows">
+          <button class="work-arrow work-prev" type="button" aria-label="Previous photos">&lsaquo;</button>
+          <button class="work-arrow work-next" type="button" aria-label="More photos">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="work-scroller" id="work-scroller" tabindex="0" role="group" aria-label="Photos of completed work">
+        <figure class="work-card">
+          <div class="work-photo">
+            <img src="images/work/glass-shower.jpg" alt="Frameless glass shower enclosure in a tiled bathroom" loading="lazy" onerror="this.closest('.work-photo').classList.add('is-empty')">
+          </div>
+          <figcaption class="work-cap">
+            <span class="work-tag">Glass shower</span>
+            <p class="work-desc">Frameless glass enclosure, measured and installed in a remodeled hall bath.</p>
+          </figcaption>
+        </figure>
+        <figure class="work-card">
+          <div class="work-photo">
+            <img src="images/work/bath-remodel.jpg" alt="Remodeled guest bathroom with new tile and vanity" loading="lazy" onerror="this.closest('.work-photo').classList.add('is-empty')">
+          </div>
+          <figcaption class="work-cap">
+            <span class="work-tag">Bathroom remodel</span>
+            <p class="work-desc">Full guest-bath refresh — new tile, vanity, and fixtures, start to finish.</p>
+          </figcaption>
+        </figure>
+        <figure class="work-card">
+          <div class="work-photo">
+            <img src="images/work/appliances.jpg" alt="New slide-in range and over-the-range microwave in a kitchen" loading="lazy" onerror="this.closest('.work-photo').classList.add('is-empty')">
+          </div>
+          <figcaption class="work-cap">
+            <span class="work-tag">Appliances</span>
+            <p class="work-desc">Slide-in range and over-the-range microwave — installed, leveled, and tested.</p>
+          </figcaption>
+        </figure>
+        <figure class="work-card">
+          <div class="work-photo">
+            <img src="images/work/shower.jpg" alt="New walk-in shower surround" loading="lazy" onerror="this.closest('.work-photo').classList.add('is-empty')">
+          </div>
+          <figcaption class="work-cap">
+            <span class="work-tag">Shower replacement</span>
+            <p class="work-desc">Old tub-shower swapped for a sealed, watertight walk-in surround.</p>
+          </figcaption>
+        </figure>
+        <figure class="work-card">
+          <div class="work-photo">
+            <img src="images/work/blinds.jpg" alt="Motorized shades on a wall of living-room windows" loading="lazy" onerror="this.closest('.work-photo').classList.add('is-empty')">
+          </div>
+          <figcaption class="work-cap">
+            <span class="work-tag">Blinds &amp; shades</span>
+            <p class="work-desc">Motorized shades fitted across a living-room wall of windows.</p>
+          </figcaption>
+        </figure>
+        <figure class="work-card">
+          <div class="work-photo">
+            <img src="images/work/shower-repair.jpg" alt="Repaired glass shower door" loading="lazy" onerror="this.closest('.work-photo').classList.add('is-empty')">
+          </div>
+          <figcaption class="work-cap">
+            <span class="work-tag">Shower door repair</span>
+            <p class="work-desc">New rollers and seals on a glass door that had started to drag.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- REVIEWS -->
     <section class="reviews" id="reviews">
       <div class="container reviews-inner">
@@ -440,11 +512,16 @@
             <label for="f-list">A bit about the job</label>
             <textarea id="f-list" name="list" rows="4" placeholder="What you'd like installed or replaced, the room, and any timing you're hoping for…"></textarea>
           </div>
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-red btn-wide" type="submit">Request my walkthrough</button>
           <p class="form-note">Prefer to talk? Call or text <a href="tel:+18164471834">(816) 447-1834</a>. We reply within one business day.</p>
           <div class="form-success" hidden>
             <p class="form-success-title">Request received.</p>
             <p>We'll be in touch within one business day to set a time.</p>
+          </div>
+          <div class="form-error" hidden>
+            <p class="form-success-title">That didn't go through.</p>
+            <p>Please try again, or call or text <a href="tel:+18164471834">(816) 447-1834</a>.</p>
           </div>
         </form>
       </div>

@@ -130,6 +130,63 @@ document.querySelectorAll('.faq-btn').forEach((btn) => {
   });
 });
 
+/* Recent-work horizontal scroller */
+const workScroller = document.getElementById('work-scroller');
+
+if (workScroller) {
+  const prev = document.querySelector('.work-prev');
+  const next = document.querySelector('.work-next');
+
+  const step = () => {
+    const card = workScroller.querySelector('.work-card');
+    return card ? card.getBoundingClientRect().width + 20 : workScroller.clientWidth * 0.8;
+  };
+
+  const updateArrows = () => {
+    if (!prev || !next) return;
+    const max = workScroller.scrollWidth - workScroller.clientWidth - 2;
+    prev.disabled = workScroller.scrollLeft <= 1;
+    next.disabled = workScroller.scrollLeft >= max;
+  };
+
+  const behavior = reduceMotion ? 'auto' : 'smooth';
+  if (prev) prev.addEventListener('click', () => workScroller.scrollBy({ left: -step(), behavior }));
+  if (next) next.addEventListener('click', () => workScroller.scrollBy({ left: step(), behavior }));
+
+  workScroller.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+
+  // Drag-to-scroll for mouse users (touch/trackpad use native scrolling)
+  let dragging = false;
+  let startX = 0;
+  let startScroll = 0;
+
+  workScroller.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    dragging = true;
+    startX = e.clientX;
+    startScroll = workScroller.scrollLeft;
+    workScroller.setPointerCapture(e.pointerId);
+    workScroller.classList.add('is-dragging');
+  });
+
+  workScroller.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    workScroller.scrollLeft = startScroll - (e.clientX - startX);
+  });
+
+  const endDrag = () => {
+    if (!dragging) return;
+    dragging = false;
+    workScroller.classList.remove('is-dragging');
+    updateArrows();
+  };
+
+  workScroller.addEventListener('pointerup', endDrag);
+  workScroller.addEventListener('pointercancel', endDrag);
+}
+
 /* Estimate form */
 const form = document.getElementById('estimate-form');
 
@@ -156,13 +213,55 @@ if (form) {
       return;
     }
 
-    const success = form.querySelector('.form-success');
-    form.querySelectorAll('.field, button[type="submit"], .form-note').forEach((el) => {
-      el.hidden = true;
-    });
-    success.hidden = false;
-    success.setAttribute('tabindex', '-1');
-    success.focus();
+    // Honeypot — silently drop bot submissions
+    const honey = form.querySelector('.form-honey');
+    if (honey && honey.value) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const successBox = form.querySelector('.form-success');
+    const errorBox = form.querySelector('.form-error');
+    const originalLabel = submitBtn.textContent;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    if (errorBox) errorBox.hidden = true;
+
+    const payload = {
+      Name: document.getElementById('f-name').value.trim(),
+      'Phone or email': document.getElementById('f-contact').value.trim(),
+      'What they need': document.getElementById('f-type').value,
+      Details: document.getElementById('f-list').value.trim() || '(none provided)',
+      _subject: 'New estimate request — Cortez Home Solutions',
+      _template: 'table',
+      _captcha: 'false',
+    };
+
+    fetch('https://formsubmit.co/ajax/lostheboss23@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Request failed');
+        return res.json();
+      })
+      .then(() => {
+        form.querySelectorAll('.field, button[type="submit"], .form-note').forEach((el) => {
+          el.hidden = true;
+        });
+        successBox.hidden = false;
+        successBox.setAttribute('tabindex', '-1');
+        successBox.focus();
+      })
+      .catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        if (errorBox) {
+          errorBox.hidden = false;
+          errorBox.setAttribute('tabindex', '-1');
+          errorBox.focus();
+        }
+      });
   });
 
   form.querySelectorAll('input, textarea').forEach((input) => {
