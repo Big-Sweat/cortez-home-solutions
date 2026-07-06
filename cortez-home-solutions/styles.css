@@ -650,7 +650,7 @@ html:not(.js) .eyebrow::before { transform: scaleX(1); }
   margin-bottom: 0.5rem;
 }
 
-.step-desc { font-size: 0.9375rem; color: var(--ink-soft); }
+.step-desc { font-size: 1.171875rem; color: var(--ink-soft); }
 
 /* ---------- recent work ---------- */
 
